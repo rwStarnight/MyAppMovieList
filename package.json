@@ -22,7 +22,8 @@
 		"react-native": "0.48.4",
 		"react-router": "^3.0.0",
 		"react-subscribe": "^1.0.1",
-		"urijs": "^1.18.4"
+		"urijs": "^1.18.4",
+		"uuid": "^3.1.0"
 	},
 	"devDependencies": {
 		"babel-eslint": "^7.1.1",

@@ -10,4 +10,4 @@ if (!__DEV__) {
     };
 }
 
-AppRegistry.registerComponent('App', () => App);
+AppRegistry.registerComponent('MyAppMovieList', () => App);
