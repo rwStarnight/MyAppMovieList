@@ -11,3 +11,5 @@ Updates:
 2. fix errors: the file path was wrong and it took much time to find out the problems.
 
 3. about UI: make rating stars of movies 
+
+4. douban api: douban changes image from 'jpg' to 'webp', but react-native run-ios can't load 'webp' pics. I've tried to use react-native-webp adds support for WebP images for react-native components but failed. Now I'll be with imdb-api.
