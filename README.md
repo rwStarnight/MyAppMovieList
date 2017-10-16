@@ -8,6 +8,8 @@ Updates:
 
 1. first try: display pictures and names of movies.
 
-2. fix errors: the file path was wrong and it took much time to find out the problems.
+2. fix errors: the file path was wrong and it took much time to find out the BUG.
 
-3. about UI: make rating stars of movies 
+3. about UI: add rating stars of movies.
+
+4. douban api: douban changes image from 'jpg' to 'webp', but react-native run-ios can't load 'webp' pics. I've tried to use react-native-webp adds support for WebP images for react-native components but failed. Now I'll be with imdb-api. （Oh!OMDB API is private since May 8, 2017 and I would like to get it!）
