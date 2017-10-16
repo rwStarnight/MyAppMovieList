@@ -93,11 +93,11 @@ const renderStars = (stars) => {
 }
 
 const Item = (props) => {
-    const { title, image, stars } = props;
+    const { title, images, stars } = props;
     return (
     <View style={styles.root}>
         <Image
-            source={{ uri: image }}
+            source={{uri: images}}
             style={styles.image}
         ></Image>
         <Text
