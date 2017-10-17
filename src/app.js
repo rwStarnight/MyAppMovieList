@@ -25,7 +25,7 @@ export default class app extends Component {
                     keyExtractor={item => item.id}
                     data={movies.subjects}
                     renderItem={
-                        ({item}) =>
+                        ({ item }) =>
                         <Item
                             title={item.title}
                             image={item.images.medium}

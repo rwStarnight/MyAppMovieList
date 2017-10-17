@@ -23,7 +23,7 @@
     "react/prefer-stateless-function": 0,
 
     // Move properties before.
-    "react/sort-comp": [2, {
+    "react/sort-comp": [4, {
       "order": [
         "static-methods",
         "constructor",

@@ -5,6 +5,7 @@ import {
     Text,
     Image,
     Dimensions,
+    TouchableOpacity,
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -17,22 +18,22 @@ const imageHeight = imageWidth / 0.697;
 
 const styles = StyleSheet.create({
     root: {
-        width: thirdWidth,
+        width: imageWidth,
         marginTop: 20,
-        paddingHorizontal: 10,
+        marginLeft: 15,
     },
     image: {
         width: imageWidth,
         height: imageHeight,
     },
-    title:{
+    title: {
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
         width: imageWidth,
         marginTop: 5,
     },
-    stars:{
+    stars: {
        width: 10,
        height: 10,
     },
@@ -92,24 +93,23 @@ const renderStars = (stars) => {
     );
 }
 
-const Item = (props) => {
-    const { title, images, stars } = props;
+const Item = (props) =>  {
+    const { title, image, stars, onPress } = props;
     return (
-    <View style={styles.root}>
-        <Image
-            source={{uri: images}}
-            style={styles.image}
-        ></Image>
-        <Text
-            numberOfLines={1}
-            style={styles.title}
-        >
-            {title}
-        </Text>
-        {renderStars(stars)}
-    </View>
- );
+        <TouchableOpacity style={styles.root} onPress={onPress}>
+            <Image
+                source={{ uri: image }}
+                style={styles.image}
+            />
+            <Text
+                numberOfLines={1}
+                style={styles.title}
+            >
+                {title}
+            </Text>
+            {renderStars(stars)}
+        </TouchableOpacity>
+    );
 };
-
 
 export default Item
