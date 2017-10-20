@@ -10,4 +10,6 @@ if (!__DEV__) {
     };
 }
 
+console.ignoreYellowBox = ['Warning: Can only update'];
+
 AppRegistry.registerComponent('MyAppMovieList', () => App);
