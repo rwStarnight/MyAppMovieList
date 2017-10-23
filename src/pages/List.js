@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {
     View,
-    Text,
-    Image,
     StyleSheet,
     FlatList,
     ActivityIndicator,
@@ -14,28 +12,29 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
     },
-    loading:{
+    loading: {
         marginTop: 100,
-    }
+    },
 });
 
 const api = 'https://api.douban.com/v2/movie/in_theaters';
 
 export default class List extends Component {
     static navigationOptions = {
-        title: 'List',
-        header: null
+        title: 'In Theaters',
+        header: null,
     };
     state = {
         movies:[],
         refreshing: false,
         ready: false,
+        childState: '',
     };
     refreshing = false;
     start = 0;
     count = 12;
     fetchData = (start = 0, count = 12) => {
-        if (this.refreshing){
+        if (this.refreshing) {
             return;
         }
         this.setState({
@@ -81,7 +80,8 @@ export default class List extends Component {
         const { navigate } = this.props.navigation;
         const { movies, refreshing, ready } = this.state;
         return (
-            <View>{
+            <View>
+                {
                 ready ?
                     <FlatList
                         style={styles.row}
@@ -94,15 +94,20 @@ export default class List extends Component {
                         refreshing={refreshing}
                         ListFooterComponent={() =>{
                             return refreshing &&
-                                <ActivityIndicator size="large" />
+                                <ActivityIndicator size="large" />;
                         }}
-                        renderItem={({item}) =>
+                        renderItem={({ item }) =>
                                 <Item
                                     title={item.title}
                                     image={item.images.medium}
                                     stars={item.rating.stars}
-                                    onPress={() => navigate('Detail',{
+                                    onPress={() => navigate('Detail', {
                                         id: item.id,
+                                        callback: (data) => {
+                                            this.setState({
+                                                childState: data,
+                                            });
+                                        },
                                     })}
                                 />
                         }
