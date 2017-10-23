@@ -14,4 +14,6 @@ Updates:
 
 4. douban api: douban changes image from 'jpg' to 'webp', but react-native run-ios can't load 'webp' pics.（I find the bug  that the website path is wrong, so didn't fetch the api.）
 
-5. Navigation: first try and then bug again.
+5. Navigation: first try and then bug again.(RN always has this issue, npm install)
+
+6. add trailer linking to Detail.
