@@ -37,13 +37,22 @@ const styles = StyleSheet.create({
        width: 10,
        height: 10,
     },
-    starsWrapper:{
+    starsWrapper: {
         flexDirection: 'row',
     },
+    scores: {
+        width: 10,
+        height: 10,
+        textAlign: 'center',
+    },
+    ratingWrapper: {
+        flexDirection: 'row',
+        width: imageWidth,
+    }
 });
 
 const renderStars = (stars) => {
-    if (stars === '00'){
+    if (stars === '00') {
         return;
     }
     const total = 5;
@@ -59,13 +68,13 @@ const renderStars = (stars) => {
     }
     const results = [];
     let i
-    for (i = 0; i < full; i++){
+    for (i = 0; i < full; i++) {
         results.push(
             <Image
                 key={i}
                 style={styles.stars}
                 source={require('../img/star-full.png')}
-            />
+            />,
         );
     }
     if (half) {
@@ -74,16 +83,16 @@ const renderStars = (stars) => {
                 key={i}
                 style={styles.stars}
                 source={require('../img/star-half.png')}
-            />
+            />,
         );
     }
-    for (let j = 0; j < empty; j++){
+    for (let j = 0; j < empty; j++) {
         results.push(
             <Image
                 key={i+j+1}
                 style={styles.stars}
                 source={require('../img/star-empty.png')}
-            />
+            />,
         );
     }
     return (
@@ -94,7 +103,7 @@ const renderStars = (stars) => {
 }
 
 const Item = (props) =>  {
-    const { title, image, stars, onPress } = props;
+    const { title, image, stars, scores, onPress } = props;
     return (
         <TouchableOpacity style={styles.root} onPress={onPress}>
             <Image
@@ -108,8 +117,10 @@ const Item = (props) =>  {
                 {title}
             </Text>
             {renderStars(stars)}
+            {scores}
         </TouchableOpacity>
     );
 };
 
-export default Item
+export default Item;
+
